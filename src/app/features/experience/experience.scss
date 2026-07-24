@@ -1,0 +1,19 @@
+.timeline-rail {
+  position: absolute;
+  left: 0.9rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: linear-gradient(to bottom, #3763f7, rgba(55, 99, 247, 0.1));
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0.5rem;
+  top: 1.6rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 9999px;
+  background: #3763f7;
+  box-shadow: 0 0 0 4px rgba(55, 99, 247, 0.18);
+}

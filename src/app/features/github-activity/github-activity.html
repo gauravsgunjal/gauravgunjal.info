@@ -1,0 +1,144 @@
+<section class="section">
+  <div class="text-center">
+    <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">GitHub</p>
+    <h1 class="section-heading mx-auto mt-2">Live GitHub Activity</h1>
+    <p class="section-subheading mx-auto text-center">
+      Pulled live from the public GitHub API — repositories, languages, and recent activity.
+    </p>
+  </div>
+
+  @if (loading()) {
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-busy="true" aria-label="Loading GitHub activity">
+      @for (i of [1, 2, 3, 4, 5, 6]; track i) {
+        <div class="card h-40 animate-pulse !p-6"></div>
+      }
+    </div>
+  } @else if (error() || !user()) {
+    <div class="card mx-auto mt-10 max-w-lg text-center">
+      <p class="text-lg font-semibold text-slate-900 dark:text-white">GitHub data unavailable right now</p>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
+        The public GitHub API is rate-limited to 60 requests/hour per visitor IP without authentication. Try
+        again shortly, or view the profile directly.
+      </p>
+      <a
+        href="https://github.com/gauravsgunjal"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-4 inline-flex items-center gap-2 rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white"
+      >
+        View on GitHub
+      </a>
+    </div>
+  } @else {
+    <div class="mt-10 grid gap-8 lg:grid-cols-[1fr_2fr]">
+      <div class="card text-center">
+        <img [src]="user()!.avatar_url" [alt]="user()!.login" width="96" height="96" class="mx-auto h-24 w-24 rounded-full" />
+        <h2 class="mt-4 text-lg font-bold text-slate-900 dark:text-white">{{ user()!.name ?? user()!.login }}</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400">&#64;{{ user()!.login }}</p>
+        @if (user()!.bio) {
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">{{ user()!.bio }}</p>
+        }
+        <div class="mt-5 grid grid-cols-3 gap-2 border-t border-black/5 pt-4 text-center dark:border-white/10">
+          <div>
+            <p class="text-lg font-bold text-slate-900 dark:text-white">{{ user()!.public_repos }}</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Repos</p>
+          </div>
+          <div>
+            <p class="text-lg font-bold text-slate-900 dark:text-white">{{ user()!.followers }}</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Followers</p>
+          </div>
+          <div>
+            <p class="text-lg font-bold text-slate-900 dark:text-white">{{ user()!.following }}</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Following</p>
+          </div>
+        </div>
+        <a
+          [href]="user()!.html_url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 py-2.5 text-sm font-semibold text-slate-700 hover:border-brand-500 hover:text-brand-600 dark:border-slate-600 dark:text-slate-200"
+        >
+          View Full Profile
+        </a>
+      </div>
+
+      <div class="space-y-8">
+        <div class="card">
+          <h3 class="text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+            Contribution Activity
+          </h3>
+          <div class="mt-4 overflow-x-auto">
+            <img [src]="contributionGraphUrl" alt="GitHub contribution calendar" class="min-w-[600px]" loading="lazy" />
+          </div>
+        </div>
+
+        @if (languageStats().length) {
+          <div class="card">
+            <h3 class="text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+              Language Breakdown
+            </h3>
+            <ul class="mt-4 space-y-3">
+              @for (stat of languageStats(); track stat.language) {
+                <li>
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="font-medium text-slate-700 dark:text-slate-200">{{ stat.language }}</span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400">{{ stat.percentage }}%</span>
+                  </div>
+                  <div class="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+                    <div class="h-full rounded-full bg-gradient-to-r from-brand-500 to-accent-500" [style.width.%]="stat.percentage"></div>
+                  </div>
+                </li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <h3 class="text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">Repositories</h3>
+      <div class="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        @for (repo of topRepos(); track repo.id) {
+          <a [href]="repo.html_url" target="_blank" rel="noopener noreferrer" class="card flex h-full flex-col">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 dark:text-white">{{ repo.name }}</h4>
+              @if (repo.stargazers_count > 0) {
+                <span class="flex items-center gap-1 text-xs font-medium text-amber-500">
+                  &#9733; {{ repo.stargazers_count }}
+                </span>
+              }
+            </div>
+            <p class="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-400">
+              {{ repo.description ?? 'No description provided.' }}
+            </p>
+            <div class="mt-3 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              @if (repo.language) {
+                <span>{{ repo.language }}</span>
+              }
+              <span>Updated {{ repo.updated_at | date: 'MMM y' }}</span>
+            </div>
+          </a>
+        } @empty {
+          <p class="col-span-full text-sm text-slate-500 dark:text-slate-400">No public repositories found.</p>
+        }
+      </div>
+    </div>
+
+    @if (events().length) {
+      <div class="mt-10">
+        <h3 class="text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">Recent Activity</h3>
+        <ul class="card mt-4 divide-y divide-black/5 !p-0 dark:divide-white/10">
+          @for (event of events(); track event.id) {
+            <li class="flex items-center justify-between gap-4 px-6 py-3 text-sm">
+              <span class="text-slate-600 dark:text-slate-300">
+                {{ eventLabel(event) }}
+                <span class="font-semibold text-slate-900 dark:text-white">{{ event.repo.name }}</span>
+              </span>
+              <span class="flex-none text-xs text-slate-400">{{ event.created_at | date: 'MMM d' }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+    }
+  }
+</section>

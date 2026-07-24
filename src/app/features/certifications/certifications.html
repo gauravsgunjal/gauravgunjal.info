@@ -1,0 +1,59 @@
+<section class="section">
+  <div class="text-center">
+    <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Certifications</p>
+    <h1 class="section-heading mx-auto mt-2">Certifications &amp; Credentials</h1>
+    <p class="section-subheading mx-auto text-center">
+      Formal credentials that back up hands-on production experience.
+    </p>
+  </div>
+
+  @if (certifications.length) {
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      @for (cert of certifications; track cert.id) {
+        <article class="card flex h-full flex-col overflow-hidden !p-0">
+          <div class="h-40 w-full overflow-hidden bg-white p-4 dark:bg-white/5">
+            <app-media-placeholder [src]="cert.image" [alt]="cert.name" label="Add certificate image" [width]="480" [height]="320" />
+          </div>
+          <div class="flex flex-1 flex-col p-5">
+            <h2 class="text-base font-bold text-slate-900 dark:text-white">{{ cert.name }}</h2>
+            <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{{ cert.issuer }}</p>
+            <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
+              Issued {{ cert.issueDate | date: 'MMMM y' }}
+              @if (cert.expiryDate) {
+                &middot; Expires {{ cert.expiryDate | date: 'MMMM y' }}
+              }
+            </p>
+            @if (cert.credentialId) {
+              <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">ID: {{ cert.credentialId }}</p>
+            }
+            @if (cert.verifyUrl) {
+              <a
+                [href]="cert.verifyUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-flex w-fit items-center gap-1 text-sm font-semibold text-brand-600 hover:underline dark:text-brand-300"
+              >
+                Verify credential &rarr;
+              </a>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  } @else {
+    <div class="card mx-auto mt-14 max-w-xl text-center">
+      <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-500/10 text-brand-500">
+        <svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 3 4 6.5v5c0 5 3.4 8.7 8 9.5 4.6-.8 8-4.5 8-9.5v-5L12 3Z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4" />
+        </svg>
+      </div>
+      <h2 class="mt-4 text-lg font-bold text-slate-900 dark:text-white">No certifications added yet</h2>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
+        TODO: add your certifications to
+        <code class="rounded bg-black/5 px-1.5 py-0.5 dark:bg-white/10">src/app/data/certifications.data.ts</code>
+        — each entry renders as a card with an image, credential ID, issue date, and verification link.
+      </p>
+    </div>
+  }
+</section>

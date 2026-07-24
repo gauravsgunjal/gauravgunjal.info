@@ -1,0 +1,59 @@
+<section class="section">
+  <div class="text-center">
+    <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">AWS Architecture</p>
+    <h1 class="section-heading mx-auto mt-2">Solution Architecture Gallery</h1>
+    <p class="section-subheading mx-auto text-center">
+      Reference diagrams for cloud architectures I design and deploy on AWS. Click any card to zoom in.
+    </p>
+  </div>
+
+  <div class="mt-8 flex flex-wrap justify-center gap-2">
+    @for (category of categories(); track category) {
+      <button
+        type="button"
+        class="filter-chip"
+        [class.filter-chip-active]="activeCategory() === category"
+        (click)="setCategory(category)"
+      >
+        {{ category }}
+      </button>
+    }
+  </div>
+
+  <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    @for (diagram of filteredDiagrams(); track diagram.id) {
+      <button
+        type="button"
+        class="card group flex h-full flex-col overflow-hidden !p-0 text-left"
+        (click)="open(diagram)"
+      >
+        <div class="relative h-44 w-full overflow-hidden">
+          <app-media-placeholder
+            [src]="diagram.image"
+            [alt]="diagram.title"
+            label="Add AWS diagram"
+            [width]="640"
+            [height]="360"
+          />
+          <div class="zoom-hint">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7" />
+              <path stroke-linecap="round" d="m21 21-4.3-4.3M11 8v6M8 11h6" />
+            </svg>
+          </div>
+        </div>
+        <div class="flex flex-1 flex-col p-5">
+          <p class="text-xs font-semibold uppercase tracking-wide text-brand-500">{{ diagram.category }}</p>
+          <h2 class="mt-2 text-base font-bold text-slate-900 dark:text-white">{{ diagram.title }}</h2>
+          <p class="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-400">{{ diagram.description }}</p>
+        </div>
+      </button>
+    }
+  </div>
+
+  <p class="mt-12 text-center text-xs text-slate-500 dark:text-slate-400">
+    TODO: replace these sample diagrams with your own exports (PNG/SVG) in
+    <code class="rounded bg-black/5 px-1.5 py-0.5 dark:bg-white/10">src/assets/images/architecture/</code>,
+    referenced from <code class="rounded bg-black/5 px-1.5 py-0.5 dark:bg-white/10">architecture.data.ts</code>.
+  </p>
+</section>

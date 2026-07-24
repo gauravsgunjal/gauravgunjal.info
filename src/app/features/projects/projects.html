@@ -1,0 +1,74 @@
+<section class="section">
+  <div class="text-center">
+    <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Projects</p>
+    <h1 class="section-heading mx-auto mt-2">Featured Work</h1>
+    <p class="section-subheading mx-auto text-center">
+      Production systems shipped across enterprise, EdTech, SCADA, and open-source work. Screenshots are
+      placeholders until real ones are added — see the highlighted note below.
+    </p>
+  </div>
+
+  <div class="mt-8 flex flex-wrap justify-center gap-2">
+    @for (category of categories(); track category) {
+      <button
+        type="button"
+        class="filter-chip"
+        [class.filter-chip-active]="activeFilter() === category"
+        (click)="setFilter(category)"
+      >
+        {{ category }}
+      </button>
+    }
+  </div>
+
+  <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    @for (project of filteredProjects(); track project.id) {
+      <article class="card flex h-full flex-col overflow-hidden !p-0">
+        <div class="h-44 w-full overflow-hidden">
+          <app-media-placeholder
+            [src]="project.image"
+            [alt]="project.name"
+            label="Add project screenshot"
+            [width]="640"
+            [height]="360"
+          />
+        </div>
+
+        <div class="flex flex-1 flex-col p-6">
+          <p class="text-xs font-semibold uppercase tracking-wide text-brand-500">{{ project.category }}</p>
+          <h2 class="mt-2 text-lg font-bold text-slate-900 dark:text-white">{{ project.name }}</h2>
+          <p class="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-400">{{ project.description }}</p>
+
+          <div class="mt-4 flex flex-wrap gap-2">
+            @for (tech of project.technologies; track tech) {
+              <span class="rounded-full bg-brand-500/10 px-3 py-1 text-xs font-medium text-brand-600 dark:text-brand-300">
+                {{ tech }}
+              </span>
+            }
+          </div>
+
+          <div class="mt-5 flex items-center gap-4 border-t border-black/5 pt-4 text-sm font-semibold dark:border-white/10">
+            @if (project.liveUrl) {
+              <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-brand-600 hover:underline dark:text-brand-300">
+                <span class="h-4 w-4"><app-social-icon icon="arrow-right" /></span>
+                Live Demo
+              </a>
+            }
+            @if (project.githubUrl) {
+              <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-300">
+                <span class="h-4 w-4"><app-social-icon icon="github" /></span>
+                Source
+              </a>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+
+  <p class="mt-12 text-center text-xs text-slate-500 dark:text-slate-400">
+    TODO: add real screenshots to <code class="rounded bg-black/5 px-1.5 py-0.5 dark:bg-white/10">src/assets/images/projects/</code>
+    matching each project's <code class="rounded bg-black/5 px-1.5 py-0.5 dark:bg-white/10">image</code> path in
+    <code class="rounded bg-black/5 px-1.5 py-0.5 dark:bg-white/10">projects.data.ts</code> — placeholders disappear automatically once the file exists.
+  </p>
+</section>

@@ -1,0 +1,41 @@
+// Angular Material M3 theme, tuned to match the Tailwind brand palette
+// (brand-500 #3763f7) used across the rest of the site. Applied once, globally.
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$cyan-palette
+      ),
+      typography: 'Inter',
+      density: 0
+    )
+  );
+}
+
+html.dark {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: dark,
+        primary: mat.$azure-palette,
+        tertiary: mat.$cyan-palette
+      ),
+      typography: 'Inter',
+      density: 0
+    )
+  );
+}
+
+// Let Material components pick up the same corner radius language as the
+// glassmorphism cards used throughout the custom UI.
+.mat-mdc-form-field,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-expansion-panel,
+.mat-mdc-dialog-container {
+  --mdc-shape-medium: 1rem;
+}

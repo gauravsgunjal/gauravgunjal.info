@@ -1,0 +1,41 @@
+# Dependencies
+/node_modules
+
+# Build output
+/dist
+/out-tsc
+/.angular/cache
+
+# Test coverage
+/coverage
+
+# Deployment caches
+/.firebase
+/.vercel
+/.netlify
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.iml
+.project
+.classpath
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# System
+.DS_Store
+Thumbs.db
+
+# Environment secrets (keep real keys out of git; use environment.ts placeholders + CI secrets)
+.env
+.env.local
+.env.*.local

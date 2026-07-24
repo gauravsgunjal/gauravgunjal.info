@@ -1,0 +1,88 @@
+<header
+  class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-all duration-300"
+  [class.glass]="isScrolled()"
+  [class.shadow-glass]="isScrolled()"
+  [class.dark:shadow-glass-dark]="isScrolled()"
+  [class.border-black/5]="isScrolled()"
+  [class.dark:border-white/10]="isScrolled()"
+>
+  <nav
+    class="mx-auto flex max-w-6xl items-center justify-between px-4 transition-all duration-300"
+    [class.py-5]="!isScrolled()"
+    [class.py-3]="isScrolled()"
+  >
+    <a
+      routerLink="/"
+      (click)="closeMenu()"
+      class="text-lg font-bold tracking-tight text-slate-900 dark:text-white"
+      aria-label="Gaurav Gunjal — home"
+    >
+      Gaurav<span class="text-brand-500">.dev</span>
+    </a>
+
+    <ul class="hidden items-center gap-1 lg:flex">
+      @for (link of links; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="nav-link-active"
+            [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+            ariaCurrentWhenActive="page"
+            class="nav-link"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <div class="flex items-center gap-2">
+      <app-theme-toggle />
+      <a
+        routerLink="/contact"
+        class="hidden rounded-full bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-glow transition hover:bg-brand-600 sm:inline-flex"
+      >
+        Let's Talk
+      </a>
+      <button
+        type="button"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-700 hover:bg-black/5 dark:text-slate-200 dark:hover:bg-white/10 lg:hidden"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen()"
+        aria-controls="mobile-menu"
+        aria-label="Toggle navigation menu"
+      >
+        @if (isMenuOpen()) {
+          <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        } @else {
+          <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        }
+      </button>
+    </div>
+  </nav>
+
+  @if (isMenuOpen()) {
+    <div id="mobile-menu" class="glass mx-4 mt-2 rounded-2xl p-4 lg:hidden">
+      <ul class="flex flex-col gap-1">
+        @for (link of links; track link.path) {
+          <li>
+            <a
+              [routerLink]="link.path"
+              routerLinkActive="nav-link-active"
+              [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+              ariaCurrentWhenActive="page"
+              class="nav-link block"
+              (click)="closeMenu()"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+</header>

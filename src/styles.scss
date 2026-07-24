@@ -1,0 +1,177 @@
+@use './styles/material-theme';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f6f8fc;
+  --bg-alt: #ffffff;
+  --text: #0f172a;
+  --border: rgba(15, 23, 42, 0.08);
+}
+
+html.dark {
+  color-scheme: dark;
+  --bg: #0b1020;
+  --bg-alt: #10162b;
+  --text: #e2e8f0;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: rgba(55, 99, 247, 0.25);
+}
+
+/* Loading splash shown before Angular bootstraps */
+.app-loading {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  z-index: 9999;
+}
+
+.app-loading__spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 3px solid rgba(55, 99, 247, 0.2);
+  border-top-color: #3763f7;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Glassmorphism utility, used across cards/nav/panels */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+html.dark .glass {
+  background: rgba(16, 22, 43, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card {
+  @apply glass rounded-2xl p-6 shadow-glass transition duration-300;
+}
+
+html.dark .card {
+  @apply shadow-glass-dark;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.section {
+  @apply mx-auto max-w-6xl px-4 py-20;
+}
+
+.section-heading {
+  @apply text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl;
+}
+
+.section-subheading {
+  @apply mt-3 max-w-2xl text-slate-600 dark:text-slate-400;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #3763f7, #06b6d4, #3763f7);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.zoom-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.45);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.group:hover .zoom-hint,
+.group:focus-visible .zoom-hint {
+  opacity: 1;
+}
+
+.filter-chip {
+  @apply rounded-full border border-slate-300 px-4 py-1.5 text-sm font-medium text-slate-600 transition hover:border-brand-500 hover:text-brand-600 dark:border-slate-600 dark:text-slate-300 dark:hover:border-brand-400 dark:hover:text-brand-300;
+}
+
+.filter-chip-active {
+  @apply border-brand-500 bg-brand-500 text-white hover:text-white dark:border-brand-400 dark:bg-brand-500;
+}
+
+.footer-link {
+  @apply text-slate-600 transition hover:text-brand-500 dark:text-slate-400 dark:hover:text-brand-400;
+}
+
+/* Skip-to-content link, visible only on keyboard focus (WCAG bypass-blocks) */
+.skip-link {
+  position: fixed;
+  top: -3rem;
+  left: 1rem;
+  z-index: 100;
+  background: #3763f7;
+  color: white;
+  padding: 0.6rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Focus visibility for accessibility (WCAG) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3763f7;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
