@@ -34,7 +34,7 @@ export class AwsArchitecture implements OnInit {
     this.seo.update({
       title: 'AWS Architecture Gallery',
       description: "A gallery of AWS solution architecture diagrams from Gaurav Gunjal's cloud projects.",
-      url: 'https://gauravgunjal.dev/aws-architecture'
+      url: 'https://gauravgunjal.info/aws-architecture'
     });
   }
 

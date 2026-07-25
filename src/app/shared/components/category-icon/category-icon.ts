@@ -5,8 +5,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   selector: 'app-category-icon',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'flex h-full w-full' },
   template: `
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-full w-full">
+    <svg  fill="none" stroke="currentColor" stroke-width="1.8" class="h-full w-full">
       @switch (icon) {
         @case ('server') {
           <rect x="3" y="4" width="18" height="6" rx="1.5" />

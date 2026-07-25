@@ -19,7 +19,7 @@ export class Skills implements OnInit {
       title: 'Skills',
       description:
         "Gaurav Gunjal's technical skill set across Backend, Frontend, Cloud, Database, DevOps, and AI.",
-      url: 'https://gauravgunjal.dev/skills'
+      url: 'https://gauravgunjal.info/skills'
     });
   }
 }

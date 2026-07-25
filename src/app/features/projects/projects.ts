@@ -33,7 +33,7 @@ export class Projects implements OnInit {
       title: 'Featured Projects',
       description:
         'Enterprise applications, SCADA monitoring platforms, and open-source work by Gaurav Gunjal, spanning Java, PHP, and Angular.',
-      url: 'https://gauravgunjal.dev/projects'
+      url: 'https://gauravgunjal.info/projects'
     });
   }
 

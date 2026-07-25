@@ -12,10 +12,10 @@ export const PROFILE: Profile = {
     'Java & Spring Boot Specialist',
     'Angular Frontend Architect',
     'AWS Cloud-Native Developer',
-    'AI-Driven Solutions Builder'
+    'AI Enthusiast'
   ],
   location: 'Pune, India',
-  email: 'gauravsgunjal@gmail.com',
+  email: 'gauravgunjal.info@gmail.com',
   phone: '+91 96577 26462',
   summary:
     `Senior Full Stack Engineer with ${experience.label} of experience designing and shipping enterprise-grade ` +
@@ -64,14 +64,14 @@ export const PROFILE: Profile = {
   ],
   stats: [
     { label: 'Years of Experience', value: experience.wholeYears, suffix: '+' },
-    { label: 'Production Applications Delivered', value: 15, suffix: '+' },
+    { label: 'Applications Delivered', value: 15, suffix: '+' },
     { label: 'Companies', value: 3 },
     { label: 'Core Technology Domains', value: 6 }
   ],
   social: [
     { label: 'GitHub', url: 'https://github.com/gauravsgunjal', icon: 'github' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/gauravgunjal07', icon: 'linkedin' },
-    { label: 'Email', url: 'mailto:gauravsgunjal@gmail.com', icon: 'mail' }
+    { label: 'Email', url: 'mailto:gauravgunjal.info@gmail.com', icon: 'mail' }
   ],
   // TODO: replace with your real headshot (assets/images/profile/profile.jpg) and updated resume PDF.
   resumeUrl: 'assets/resume/gaurav-gunjal-resume.pdf',

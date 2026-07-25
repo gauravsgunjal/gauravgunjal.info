@@ -39,7 +39,7 @@ export class BlogDetail implements OnInit {
     this.seo.update({
       title: post.title,
       description: post.excerpt,
-      url: `https://gauravgunjal.dev/blog/${post.slug}`
+      url: `https://gauravgunjal.info/blog/${post.slug}`
     });
 
     this.markdown

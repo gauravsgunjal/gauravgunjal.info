@@ -58,25 +58,3 @@
   z-index: -1;
 }
 
-.social-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(148, 163, 184, 0.3);
-  color: rgb(51 65 85);
-  transition: all 0.2s ease;
-}
-
-html.dark .social-btn {
-  color: rgb(226 232 240);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.social-btn:hover {
-  transform: translateY(-2px);
-  border-color: #3763f7;
-  color: #3763f7;
-}

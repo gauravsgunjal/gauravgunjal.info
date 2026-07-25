@@ -44,7 +44,7 @@ export class GithubActivity implements OnInit {
     this.seo.update({
       title: 'GitHub Activity',
       description: "Live GitHub profile, repositories, and contribution activity for Gaurav Gunjal.",
-      url: 'https://gauravgunjal.dev/github-activity'
+      url: 'https://gauravgunjal.info/github-activity'
     });
 
     forkJoin({

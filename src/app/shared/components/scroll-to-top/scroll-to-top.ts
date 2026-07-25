@@ -12,7 +12,7 @@ import { ChangeDetectionStrategy, Component, HostListener, signal } from '@angul
         (click)="scrollToTop()"
         aria-label="Scroll back to top"
       >
-        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+        <svg  class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7" />
         </svg>
       </button>

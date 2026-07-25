@@ -3,7 +3,7 @@
     <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">About Me</p>
     <h1 class="section-heading mx-auto mt-2">My Journey So Far</h1>
     <p class="section-subheading mx-auto text-center">
-      Eight-plus years, three companies, one throughline: build software people can actually rely on.
+      {{ experience.label }} years, three companies, one throughline: build software people can actually rely on.
     </p>
   </div>
 
@@ -43,7 +43,7 @@
         <ul class="mt-4 space-y-3">
           @for (achievement of profile.achievements; track achievement) {
             <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300">
-              <svg viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 flex-none text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.5">
+              <svg  class="mt-0.5 h-4 w-4 flex-none text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7" />
               </svg>
               {{ achievement }}

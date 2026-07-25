@@ -45,7 +45,7 @@ export class BlogList implements OnInit {
     this.seo.update({
       title: 'Technical Blog',
       description: 'Articles on Java, Spring Boot, Angular, AWS, and enterprise engineering by Gaurav Gunjal.',
-      url: 'https://gauravgunjal.dev/blog'
+      url: 'https://gauravgunjal.info/blog'
     });
   }
 

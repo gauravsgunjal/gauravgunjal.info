@@ -21,7 +21,7 @@ export class Resume implements OnInit {
     this.seo.update({
       title: 'Resume',
       description: "Download Gaurav Gunjal's resume — Senior Full Stack Engineer.",
-      url: 'https://gauravgunjal.dev/resume'
+      url: 'https://gauravgunjal.info/resume'
     });
 
     // HEAD request just checks whether the PDF exists at build time, so we can

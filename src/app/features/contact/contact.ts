@@ -53,7 +53,7 @@ export class Contact implements OnInit {
     this.seo.update({
       title: 'Contact',
       description: 'Get in touch with Gaurav Gunjal for full-stack engineering opportunities and collaborations.',
-      url: 'https://gauravgunjal.dev/contact'
+      url: 'https://gauravgunjal.info/contact'
     });
   }
 

@@ -22,7 +22,7 @@ export class Experience implements OnInit {
     this.seo.update({
       title: 'Professional Experience',
       description: `${this.totalExperience.label} of professional experience across TCS, BECIS, and Invictus (ITWizz), building enterprise Java, Angular, and PHP applications.`,
-      url: 'https://gauravgunjal.dev/experience'
+      url: 'https://gauravgunjal.info/experience'
     });
   }
 }

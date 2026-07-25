@@ -21,7 +21,7 @@ import { ArchitectureDiagram } from '../../../models/architecture.model';
           class="flex h-9 w-9 flex-none items-center justify-center rounded-full text-slate-500 hover:bg-black/5 dark:text-slate-300 dark:hover:bg-white/10"
           aria-label="Close diagram preview"
         >
-          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+          <svg  class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
           </svg>
         </button>

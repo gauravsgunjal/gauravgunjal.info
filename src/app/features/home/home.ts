@@ -25,7 +25,7 @@ export class Home implements OnInit {
     this.seo.update({
       title: 'Gaurav Gunjal | Senior Full Stack Engineer',
       description: PROFILE.summary,
-      url: 'https://gauravgunjal.dev/'
+      url: 'https://gauravgunjal.info/'
     });
   }
 }

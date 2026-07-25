@@ -13,7 +13,7 @@ export const PROJECTS: Project[] = [
       'Chart.js), Excel export, individual-device comparison, and an alerting/ticketing workflow spanning ' +
       'owners, plant managers, and the monitoring team.',
     image: 'assets/images/projects/beat-solar.jpg',
-    technologies: ['CodeIgniter', 'PHP', 'MySQL', 'jQuery', 'AJAX', 'Chart.js', 'amCharts'],
+    technologies: ['CodeIgniter', 'PHP', 'MySQL', 'Angular', 'AJAX', 'Chart.js', 'amCharts'],
     liveUrl: 'https://beatsolarindia.be-cis.com/',
     featured: true,
     category: 'SCADA / IoT'
@@ -28,14 +28,14 @@ export const PROJECTS: Project[] = [
       'Extends the BEAT monitoring architecture to bio-energy plants, maintaining device registries, ' +
       'performance reports, and fault alerting for plant owners across multiple regions.',
     image: 'assets/images/projects/beat-bio-energy.jpg',
-    technologies: ['CodeIgniter', 'PHP', 'MySQL', 'jQuery', 'AJAX'],
+    technologies: ['CodeIgniter', 'PHP', 'MySQL', 'Angular', 'AJAX'],
     liveUrl: 'https://beatbiosea.be-cis.com/',
     featured: true,
     category: 'SCADA / IoT'
   },
   {
     id: 'msceia',
-    name: 'MSCEIA — Institute & Exam Management',
+    name: 'MSCEIA - Institute & Exam Management',
     description:
       'Statewide platform for the Maharashtra State Commerce Educational Institutes Association managing ' +
       'institute registration, exam logistics, and results.',
@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
       'the association a single system of record across all affiliated institutes.',
     image: 'assets/images/projects/msceia.jpg',
     technologies: ['CodeIgniter', 'MySQL', 'HTML', 'jQuery', 'AJAX'],
-    liveUrl: 'https://msceia.in/',
+    liveUrl: 'https://msceia.co.in/',
     featured: true,
     category: 'Enterprise'
   },

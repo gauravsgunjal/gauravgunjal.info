@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
-  siteUrl: 'https://gauravgunjal.dev',
+  siteUrl: 'https://gauravgunjal.info',
   githubUsername: 'gauravsgunjal',
   emailjs: {
-    serviceId: 'YOUR_EMAILJS_SERVICE_ID',
-    templateId: 'YOUR_EMAILJS_TEMPLATE_ID',
-    publicKey: 'YOUR_EMAILJS_PUBLIC_KEY'
+    serviceId: 'service_uoz8vdc',
+    templateId: 'template_n32a89j',
+    publicKey: '85-9TeECcHUKhWzVZ'
   },
   turnstile: {
     siteKey: 'YOUR_CLOUDFLARE_TURNSTILE_SITE_KEY'

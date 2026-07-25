@@ -19,7 +19,7 @@ export class Certifications implements OnInit {
     this.seo.update({
       title: 'Certifications',
       description: "Professional certifications earned by Gaurav Gunjal.",
-      url: 'https://gauravgunjal.dev/certifications'
+      url: 'https://gauravgunjal.info/certifications'
     });
   }
 }
