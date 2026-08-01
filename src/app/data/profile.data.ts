@@ -19,10 +19,13 @@ export const PROFILE: Profile = {
   phone: '+91 96577 26462',
   summary:
     `Senior Full Stack Engineer with ${experience.label} of experience designing and shipping enterprise-grade ` +
-    'applications across the Java, Spring Boot, Angular, and PHP ecosystems. Currently building scalable ' +
-    'backend services and modern Angular interfaces at Tata Consultancy Services, with a track record of ' +
-    'delivering 15+ production systems — from SCADA monitoring platforms for renewable energy plants to ' +
-    'HRMS, admissions, and e-commerce platforms used by real institutions and businesses.',
+    'applications across the Java, Spring Boot, Angular, and PHP ecosystems.',
+  // summary:
+  //   `Senior Full Stack Engineer with ${experience.label} of experience designing and shipping enterprise-grade ` +
+  //   'applications across the Java, Spring Boot, Angular, and PHP ecosystems. Currently building scalable ' +
+  //   'backend services and modern Angular interfaces at Tata Consultancy Services, with a track record of ' +
+  //   'delivering 15+ production systems — from SCADA monitoring platforms for renewable energy plants to ' +
+  //   'HRMS, admissions, and e-commerce platforms used by real institutions and businesses.',
   aboutParagraphs: [
     'My engineering journey started in March 2017 building full-stack web applications in PHP and CodeIgniter for ' +
       'Invictus Corporation (ITWizz), where I shipped and maintained more than a dozen production systems — ' +
