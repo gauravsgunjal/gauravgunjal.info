@@ -2,6 +2,22 @@ header {
   transform: translateZ(0);
 }
 
+// Angular CDK adds `cdk-global-scrollblock` to <html> while a modal overlay
+// (e.g. the AWS architecture zoom dialog) is open. The overlay's dark
+// backdrop is meant to dim the whole page, but this fixed header renders
+// above it, so — when the page hasn't been scrolled yet — its transparent,
+// no-background state lets the page content behind it show through at full
+// brightness instead of being dimmed, breaking the modal's layering. Force
+// the same frosted "scrolled" look for the duration of the overlay so the
+// header always has an opaque backdrop to sit on top of.
+html.cdk-global-scrollblock header {
+  @apply glass shadow-glass border-black/5;
+}
+
+html.dark.cdk-global-scrollblock header {
+  @apply shadow-glass-dark border-white/10;
+}
+
 .nav-link {
   position: relative;
   padding: 0.5rem 0.85rem;
